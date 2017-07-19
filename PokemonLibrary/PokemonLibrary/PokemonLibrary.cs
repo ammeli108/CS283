@@ -6,33 +6,25 @@ using System.Threading.Tasks;
 
 namespace PokemonLibrary
 {
-    public class Pokemon_all
+    public class Pokemon
 
     {
-        public string name;
+        public string Name;
 
-        public bool gender;
+        public int CurrentHp;
 
-        public int hp;
-
-        public int hp_total;
+        public int Hp;
 
         public float Weight;
 
-        public string property;
+        public string[] Type;
 
-        public float height;
+        public float Heigh;
 
-        public int stardust;
+        public int PowerUpStardust;
 
-        public int candy;
+        public int PowerUpCandy;
 
-        public string skill1;
-
-        public int skill1_power;
-
-        public string skill2;
-
-        public int skill2_power;
+        public int EvolveCandy;
     }
 }
