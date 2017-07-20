@@ -14,12 +14,12 @@ namespace Lecture03_Example01
             return result;
         }
 
-        public int Sum(int start, int end)
+        public int Sum(int Start, int end)  // 由Start至End 順序塞入值
         {
             int total = 0;
-            for (var count = start; count <= end; count++)
+            for (var count = Start; count <= end; count++)
             {
-                total += count;
+                total += count;   // total = 迴圈運算後的值
             }
             return total;
         }
@@ -27,10 +27,11 @@ namespace Lecture03_Example01
         public int Sum(int[] numbers)
         {
             int total = 0;
-            for (var count = 0; count < numbers.Length; count++)
+            for (var count = 0; count < numbers.Length; count++)  // Length = 取陣列中所有值的總數(陣列的長度)
             {
-                total += numbers + [count];
+                total += numbers[count];   //  var[count], var後加 陣列[count]
             }
             return total;
         }
     }
+}

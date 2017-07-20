@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lecture03_Example03
 {
-    public class Position
+    internal class Position
     {
         public double X;
         public double Y;
