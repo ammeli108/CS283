@@ -20,8 +20,12 @@ namespace Lecture02_Example2
         public Form1()
         {
             InitializeComponent();
+
+            UserCandy = 350;
+            UserStardust = 135467;
             pokemon = new Pokemon()
             {
+                NationalNumber = 1,
                 Name = "妙娃種子",
                 CurrentHp = 60,
                 Hp = 60,
@@ -33,29 +37,22 @@ namespace Lecture02_Example2
                 EvolveCandy = 25
             };
 
-            NameLabel.Text = pokemon.Name;
-            HpLabel.Text = pokemon.CurrentHp.ToString() + "/" + pokemon.Hp + "HP";
-            WeightLabel.Text = pokemon.Weight.ToString() + "KG";
-            TypeLabel.Text = pokemon.Type[0] + "/" + pokemon.Type[1];
-            HeighLabel.Text = pokemon.Height.ToString() + "M";
-            PowerUpStardustLabel.Text = pokemon.PowerUpStardust.ToString();
-            PowerUpCandyLabel.Text = pokemon.PowerUpCandy.ToString();
-            EvolveLabel.Text = pokemon.EvolveCandy.ToString();
-            UserStardustLabel.Text = UserStardust.ToString();
-            UserCandyLabel.Text = UserCandy.ToString();
+            Render();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (UserCandy >= pokemon.PowerUpCandy && UserStardust >= pokemon.PowerUpStardust)
+            {
+                // UserCandy = UserCandy - pokemon.PowerUpCandy;
+                UserCandy -= pokemon.PowerUpCandy;
 
-                UserCandy = UserCandy - pokemon.PowerUpCandy;
-            UserStardust = UserStardust - pokemon.PowerUpStardust;
-            pokemon.Hp = pokemon.Hp + 10;
-            pokemon.CurrentHp = pokemon.CurrentHp + 10;
-            HpLabel.Text = pokemon.CurrentHp.ToString() + "/" + pokemon.Hp + "HP";
-            UserStardustLabel.Text = UserStardust.ToString();
-            UserCandyLabel.Text = UserCandy.ToString();
+                // UserStardust = UserStardust - pokemon.PowerUpStardust;
+                UserStardust -= pokemon.PowerUpStardust;
+
+                pokemon.PowerUp();
+                Render();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,6 +71,11 @@ namespace Lecture02_Example2
                 EvolveCandy = 100
             };
 
+            Render();
+        }
+
+        private void Render()
+        {
             NameLabel.Text = pokemon.Name;
             HpLabel.Text = pokemon.CurrentHp.ToString() + "/" + pokemon.Hp + "HP";
             WeightLabel.Text = pokemon.Weight.ToString() + "KG";

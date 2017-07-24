@@ -35,7 +35,15 @@ namespace PokemonLibrary
             EasyRandom random = new EasyRandom();
             if (NationalNumber == 1)
             {
-                double deltaHp = (int)(random.NextDouble(5.0, 15.0) / 100.0);
+                //   Hp = (int)((1.0 + random.NextDouble(5.0, 15.0) / 100) * Hp);
+
+                //   double deltaHp = (int)(random.NextDouble(5.0, 15.0) / 100.0);
+
+                int deltaHp = (int)(random.NextDouble(5.0, 15.0) / 100.0 * Hp);
+
+                //   Hp = (int)((1.0 + deltaHp) * Hp);
+                //   CurrentHp = (int)((1.0 + deltaHp) * CurrentHp);
+
                 Hp += (int)deltaHp;
                 CurrentHp += (int)deltaHp;
             }
