@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace EasyMathLibrary
 {
-    public class Vector
+    public class Vector : IComparable
     {
         public static int MaxId { get; set; }
         public int Id { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
+
+        public static int SortOption;
 
         //private double x;
         //private double y;
@@ -109,6 +111,52 @@ namespace EasyMathLibrary
                 vectors[index] = new Vector(x, y);
             }
             return vectors;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is Vector)
+            {
+                Vector other = obj as Vector;
+                switch (Vector.SortOption)
+                {
+                    case 1:
+                        if (this.X > other.X)
+                            return 1;
+                        else if (this.X < other.X)
+                            return -1;
+                        else
+                            return 0;
+
+                    case 2:
+                        if (this.Y > other.Y)
+                            return 1;
+                        else if (this.Y < other.Y)
+                            return -1;
+                        else
+                            return 0;
+
+                    case 3:
+                        if (this.Length > other.Length)
+                            return 1;
+                        else if (this.Length < other.Length)
+                            return -1;
+                        else
+                            return 0;
+
+                    default:
+                        if (this.Length > other.Length)
+                            return 1;
+                        else if (this.Length < other.Length)
+                            return -1;
+                        else
+                            return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
